@@ -1,0 +1,367 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: #2c2c2c;
+}
+
+	@import url('https://fonts.googleapis.com/css?lang=es&family=Product+Sans|Roboto:400,700');
+
+body {
+	font-family: Roboto,RobotoDraft,Arial,sans-serif;
+}
+
+main{
+	height: 100vh;
+	/* background-color: red; */
+}
+
+#notesContainer { transition: all 1s }
+
+#notesContainer {
+	padding: 7%;
+	opacity: 1;
+	display: flex;
+  flex-wrap: wrap;
+}
+#notesContainer.pre-animation {
+	 opacity:0.3;
+}
+
+
+
+
+.note {
+	padding: 5%;
+	margin: 2%;
+	border-radius: 8px;
+	flex: 1 1 30%;
+	max-height: 40%;
+	/* overflow: hidden; */
+}
+
+.note-content{
+	margin-top: 10%;
+}
+.note-big {
+	height: 100vh;
+	max-height: 100%;
+	max-width: 100%;
+	padding: 11%;
+}
+
+.note-white {
+	background-color: white;
+	border: 1px solid #bfbfbf;
+}
+.note-aqua {
+	background-color: aqua;
+}
+.note-yellow {
+	background-color: #f3fb83;
+}
+.note-red {
+	background-color: #f69681;
+}
+.note-green {
+	background-color: #45F564;
+}
+.note-pink {
+	background-color: #FFA9E3;
+}
+
+.note-hashtags {
+	color: #7C7C7C;
+	margin-bottom:10%;
+}
+
+.selectNote::after {
+	cursor: grab;
+	content: "";
+	bottom: 0;
+	background: red;
+	padding: 1%;
+	opacity: .5;
+}
+
+#notesView {
+	z-index: 1;
+	transition:  opacity 1s;
+	position: absolute;
+	bottom: 2em;
+	right:  2.2em;
+	visibility: hidden;
+	opacity: 0;
+}
+
+
+h3 {
+  font-size: 30px;
+	display: inline;
+}
+
+
+.bin {
+		right: 2.7em;
+}
+
+
+
+
+
+
+
+
+
+
+.formNewNote {
+	display: none;
+}
+.note input, .note #addTextNote {
+    background-color: lightgray;
+    border: 0;
+    width: 100%;
+    margin: 1% 0;
+    padding: 1%;
+    border-radius: 8px;
+}
+    .note input:hover, .note #addTextNote:hover {
+        -webkit-box-shadow: inset 0px 0px 20px 6px rgba(166,149,166,1);
+        -moz-box-shadow: inset 0px 0px 20px 6px rgba(166,149,166,1);
+        box-shadow: inset 0px 0px 20px 6px rgba(166,149,166,1);
+    }
+.note #addTextNote {
+    min-height: 100px;
+}
+
+
+#paintNotes {
+	position: absolute;
+	bottom: 1.5em;
+
+}
+
+
+
+/*FORM*/
+
+textarea{
+	width: 100%;
+	min-height: 80px;
+}
+form {
+    background-color: white;
+    border: 1px solid black;
+    padding: 5%;
+    margin: 2%;
+    border-radius: 8px;
+    flex: 1 1 30%;
+}
+.group {
+    position: relative;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+input {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    -webkit-appearance: none;
+    display: block;
+    background: #FAFAFA;
+    color: #636363;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #757575;
+}
+    input:focus, #addTextNote:focus {
+        outline: none;
+    }
+/* Label */
+label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: all 0.2s ease;
+}
+/* active */
+input:focus ~ label, input.used ~ label {
+    top: -20px;
+    transform: scale(.75);
+    left: -2px;
+    /* font-size: 14px; */
+    color: #4A89DC;
+}
+/* Underline */
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+    .bar:before, .bar:after {
+        content: '';
+        height: 2px;
+        width: 0;
+        bottom: 1px;
+        position: absolute;
+        background: #4A89DC;
+        transition: all 0.2s ease;
+    }
+    .bar:before {
+        left: 50%;
+    }
+    .bar:after {
+        right: 50%;
+    }
+/* active */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+    width: 50%;
+}
+/* Highlight */
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+/* active */
+input:focus ~ .highlight {
+    animation: inputHighlighter 0.3s ease;
+}
+/* Animations */
+@keyframes inputHighlighter {
+    from {
+        background: #4A89DC;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+/* Button */
+.button {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    margin: .3em 0 1em 0;
+    width: 100%;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 16px;
+    line-height: 20px;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    letter-spacing: 1px;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid #3160B6;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+    .button:focus {
+        outline: 0;
+    }
+/* Button modifiers */
+.buttonBlue {
+    background: #4A89DC;
+    text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
+}
+    .buttonBlue:hover {
+        background: #357BD8;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		.menu-container div {
+			height: 70px;
+			width: 70px;
+			background-color: white;
+			opacity: 0.8;
+			border: 0.5px solid lightblue;
+			border-radius: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+			visibility: visible;
+		}
+
+		#menu {
+			transition: opacity 1s;
+			visibility: visible;
+		}
+		#menu img, #createNote img, #createFolder img, #search img {
+			height: 50px;
+		}
+		#changeView img {
+			transition: transform 1s;
+			transform: rotate(90deg);
+			height: 25px;
+		}
+
+
+		#createNote, #createFolder, #search , #changeView{
+			visibility: hidden;
+			position: absolute;
+		}
+		#search {
+			bottom: 1em;
+			right: 6em;
+			opacity: 0.6;
+		}
+		#createNote {
+			bottom: 6em;
+			right: 6em;
+		}
+		#createFolder {
+			bottom: 9em;
+			right: 1.5em;
+		}
+		#changeView {
+			height: 6vh;
+			width: 6vh;
+			bottom: 6em;
+			right: 0.5em;
+		}
+		#menu {
+			position: absolute;
+			bottom: 2em;
+			right: 1em;
+		}
+
+
+		#createNote:hover, #createFolder:hover, #search:hover {
+			transform: scale(1.2)
+		}

@@ -1,0 +1,20 @@
+{
+  "short_name": "whyNote",
+  "name": "whynote",
+  "start_url": "whyNote.html",
+  "display": "standalone",
+  "background_color": "#f3fb83",
+  "theme_color": "#f3fb83",
+  "orientation": "portrait",
+
+  "description": "Aplicación para la gestión de notas colectivas.",
+  "icons": [{
+    "src": "assets/img/icon48px.png",
+    "sizes": "48x48",
+    "type": "image/png"
+  }, {
+    "src": "assets/img/icon72px.png",
+    "sizes": "72x72",
+    "type": "image/png"
+  }]
+}
