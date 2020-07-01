@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Rafa"/>
+		<meta name="description" content="PWA WhyNote"/>
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<title>WhyNote</title>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		<link href="//fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin,latin-ext,vietnamese" rel="stylesheet">
+
+		<link rel="icon" type="image/png" href="assets/img/icon.png" />
+	</head>
+	<body>
+		<header></header>
+		<main>
+
+			<div class="container" id="container">
+				<div class="notes" id="notesContainer">
+				</div>
+
+				<img id="notesView" height="50" src="assets/img/goBack.png" alt="return" >
+				<img id="deleteBignote" height="50" src="assets/img/bin.png" alt="idClicked" >
+
+
+
+			</div>
+
+
+			<button type="button" name="createNote" id="buttonCreateNote">Add nota prueba</button>
+		</main>
+			<div class='menu-container'>
+				<div id='createNote'>
+					<img src="assets/img/createNote.svg" alt="createNote">
+				</div>
+				<div id='changeView'>
+					<img id="imgChangeView" src="assets/img/display.svg" alt="createNote">
+				</div>
+				<div id='createFolder'>
+					<img src="assets/img/createFolder.svg" alt="createFolder">
+				</div>
+				<div id='menu'>
+					<img src="assets/img/toastcolor.png" alt="menu" class="aux-height">
+				</div>
+				<div id='search'>
+					<img src="assets/img/search.svg" alt="search" >
+				</div>
+
+			</div>
+		<footer></footer>
+
+
+		<!-- Data Base Connectio Firebase -->
+		<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+                crossorigin="anonymous"></script>
+		<script src="assets/js/js.js"></script>
+		<script src="assets/js/functions.js"></script>
+
+		</body>
+</html>

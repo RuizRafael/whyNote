@@ -14,18 +14,73 @@ body {
 main{
 	height: 100vh;
 	/* background-color: red; */
+
 }
+
+.center {
+	text-align: center;
+	font-weight: bold;
+}
+
+.animatedBG {
+	background: linear-gradient(to right, #1e5799 0%, #2ce0bf 19%, #76dd2c 40%, #dba62b 60%, #e02cbf 83%, #1e5799 100%);
+  background-size: 10000px 100%;
+  animation: bg 15s linear infinite;
+}
+
+
+
+
+@keyframes bg {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 10000px;
+  }
+}
+
+.title {
+	font-size: 3em;
+	margin-top: 1.5em;
+	margin-bottom: 1em;
+	font-family: 'Comfortaa', cursive;
+}
+#login {
+	color: black;
+	font-size: 1em;
+
+
+	padding: 10px 10px 10px 10px;
+	background: transparent;
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #757575;
+
+	margin-top: 0.83em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
+}
+
+
+
+
 
 #notesContainer { transition: all 1s }
 
 #notesContainer {
 	padding: 7%;
 	opacity: 1;
-	display: flex;
+	display: block;
   flex-wrap: wrap;
 }
 #notesContainer.pre-animation {
 	 opacity:0.3;
+}
+
+#notesContainer.opacityAnimation {
+	opacity: 1;
 }
 
 
@@ -37,6 +92,8 @@ main{
 	border-radius: 8px;
 	flex: 1 1 30%;
 	max-height: 40%;
+	max-width: 49%;
+
 	/* overflow: hidden; */
 }
 
@@ -45,6 +102,7 @@ main{
 }
 .note-big {
 	height: 100vh;
+	width: 100%;
 	max-height: 100%;
 	max-width: 100%;
 	padding: 11%;
@@ -94,6 +152,18 @@ main{
 	opacity: 0;
 }
 
+.deleteNote{
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+	height: 5%;
+  background-color: transparent;
+  position: absolute;
+  right: 5%;
+  top: 2.5%;
+  cursor: pointer;
+}
+
 
 h3 {
   font-size: 30px;
@@ -115,15 +185,10 @@ h3 {
 
 
 .formNewNote {
-	display: none;
+	/* display: none; */
 }
 .note input, .note #addTextNote {
-    background-color: lightgray;
-    border: 0;
-    width: 100%;
-    margin: 1% 0;
-    padding: 1%;
-    border-radius: 8px;
+
 }
     .note input:hover, .note #addTextNote:hover {
         -webkit-box-shadow: inset 0px 0px 20px 6px rgba(166,149,166,1);
@@ -149,139 +214,55 @@ textarea{
 	width: 100%;
 	min-height: 80px;
 }
-form {
-    background-color: white;
-    border: 1px solid black;
-    padding: 5%;
-    margin: 2%;
-    border-radius: 8px;
-    flex: 1 1 30%;
-}
-.group {
-    position: relative;
-    margin-bottom: 25px;
-    margin-top: 10px;
-}
-input {
-    font-size: 18px;
-    padding: 10px 10px 10px 5px;
-    -webkit-appearance: none;
-    display: block;
-    background: #FAFAFA;
-    color: #636363;
-    width: 100%;
-    border: none;
-    border-radius: 0;
-    border-bottom: 1px solid #757575;
+
+
+form input {
+	padding: 10px 10px 10px 5px;
+	-webkit-appearance: none;
+	display: block;
+	background: transparent;
+	color: #fff;
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #757575;
+
+	font-size: 2.2em;
+	margin-top: 0.83em;
+	margin-left: 0;
+	margin-right: 0;
+	font-weight: bold;
 }
     input:focus, #addTextNote:focus {
         outline: none;
     }
-/* Label */
-label {
-    color: #999;
-    font-size: 18px;
-    font-weight: normal;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 10px;
-    transition: all 0.2s ease;
-}
+
 /* active */
-input:focus ~ label, input.used ~ label {
-    top: -20px;
-    transform: scale(.75);
-    left: -2px;
-    /* font-size: 14px; */
-    color: #4A89DC;
-}
+
 /* Underline */
 .bar {
     position: relative;
     display: block;
     width: 100%;
 }
-    .bar:before, .bar:after {
-        content: '';
-        height: 2px;
-        width: 0;
-        bottom: 1px;
-        position: absolute;
-        background: #4A89DC;
-        transition: all 0.2s ease;
-    }
-    .bar:before {
-        left: 50%;
-    }
-    .bar:after {
-        right: 50%;
-    }
+.bar:before, .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #757575;
+    transition: all 0.3s ease;
+}
+.bar:before {
+    left: 50%;
+}
+.bar:after {
+    right: 50%;
+}
 /* active */
 input:focus ~ .bar:before, input:focus ~ .bar:after {
     width: 50%;
 }
-/* Highlight */
-.highlight {
-    position: absolute;
-    height: 60%;
-    width: 100px;
-    top: 25%;
-    left: 0;
-    pointer-events: none;
-    opacity: 0.5;
-}
-/* active */
-input:focus ~ .highlight {
-    animation: inputHighlighter 0.3s ease;
-}
-/* Animations */
-@keyframes inputHighlighter {
-    from {
-        background: #4A89DC;
-    }
-    to {
-        width: 0;
-        background: transparent;
-    }
-}
-/* Button */
-.button {
-    position: relative;
-    display: inline-block;
-    padding: 12px 24px;
-    margin: .3em 0 1em 0;
-    width: 100%;
-    vertical-align: middle;
-    color: #fff;
-    font-size: 16px;
-    line-height: 20px;
-    -webkit-font-smoothing: antialiased;
-    text-align: center;
-    letter-spacing: 1px;
-    background: transparent;
-    border: 0;
-    border-bottom: 2px solid #3160B6;
-    cursor: pointer;
-    transition: all 0.15s ease;
-}
-    .button:focus {
-        outline: 0;
-    }
-/* Button modifiers */
-.buttonBlue {
-    background: #4A89DC;
-    text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
-}
-    .buttonBlue:hover {
-        background: #357BD8;
-    }
-
-
-
-
-
-
 
 
 
@@ -307,23 +288,22 @@ input:focus ~ .highlight {
 		.menu-container div {
 			height: 70px;
 			width: 70px;
-			background-color: white;
+			/* background-color: white; */
 			opacity: 0.8;
-			border: 0.5px solid lightblue;
+			border: 0.5px solid grey;
 			border-radius: 50%;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			cursor: pointer;
-			visibility: visible;
 		}
 
-		#menu {
-			transition: opacity 1s;
-			visibility: visible;
-		}
-		#menu img, #createNote img, #createFolder img, #search img {
+
+		#createNote img, #createFolder img, #search img {
 			height: 50px;
+		}
+		#menu img {
+			height: 70px;
 		}
 		#changeView img {
 			transition: transform 1s;
@@ -331,15 +311,14 @@ input:focus ~ .highlight {
 			height: 25px;
 		}
 
-
-		#createNote, #createFolder, #search , #changeView{
-			visibility: hidden;
-			position: absolute;
+		#createNote, #createFolder, #search , #changeView, #menu{
+			opacity: 0;
+			position: fixed;
+			transition: all .5s;
 		}
 		#search {
 			bottom: 1em;
 			right: 6em;
-			opacity: 0.6;
 		}
 		#createNote {
 			bottom: 6em;
@@ -356,12 +335,108 @@ input:focus ~ .highlight {
 			right: 0.5em;
 		}
 		#menu {
-			position: absolute;
+			visibility: visible;
 			bottom: 2em;
 			right: 1em;
 		}
 
 
-		#createNote:hover, #createFolder:hover, #search:hover {
-			transform: scale(1.2)
-		}
+
+.dance {
+  -webkit-animation: dance 0.3s infinite;
+}
+@-webkit-keyframes dance{
+  0%  { -webkit-transform:rotateZ(-1deg); }
+	50%{ -webkit-transform:rotateZ( 1deg) ; }
+	100%{ -webkit-transform:rotateZ( -1deg); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.colorPicker {
+  margin-top: 10em;
+  font-size: 0.875em;
+  text-align: center;
+  display: inline-table;
+  width: 100%;
+  max-width: 40em;
+  background: #fff;
+  padding: 2px;
+  border-radius: 0.35em;
+}
+.colorPicker label {
+  -webkit-tap-highlight-color: rgba(255,255,255,0.5);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: table-cell;
+  cursor: pointer;
+  vertical-align: middle;
+  padding: 0.5em 1em;
+  text-transform: capitalize;
+  letter-spacing: -0.5em;
+  color: transparent;
+  width: 1%;
+
+}
+
+
+.colorPicker label.red {
+  background-color: #f69681;
+  -webkit-tap-highlight-color: #f69681;
+}
+.colorPicker label.orange {
+  background-color: #FFA962;
+  -webkit-tap-highlight-color: #FFA962;
+}
+.colorPicker label.yellow {
+  background-color: #f3fb83;
+  -webkit-tap-highlight-color: #f3fb83;
+}
+.colorPicker label.green {
+  background-color: #45F564;
+  -webkit-tap-highlight-color: #45F564;
+}
+.colorPicker label.blue {
+  background-color: aqua;
+  -webkit-tap-highlight-color: aqua;
+}
+.colorPicker label.indigo {
+  background-color: #5485FF;
+  -webkit-tap-highlight-color: #5485FF;
+}
+.colorPicker label.violet {
+  background-color: #FFA9E3;
+  -webkit-tap-highlight-color: #FFA9E3;
+}
+.colorPicker label:first-of-type {
+  border-radius: 0.25em 0 0 0.25em;
+}
+.colorPicker label:last-of-type {
+  border-radius: 0 0.25em 0.25em 0;
+}
+.colorPicker label:hover {
+  opacity: 1;
+  color: #000;
+  letter-spacing: normal;
+}
+.colorPicker input {
+  display: none;
+}
+.colorPicker input:checked + label {
+  width: 90%;
+  opacity: 1;
+  color: #000;
+  letter-spacing: normal;
+}
