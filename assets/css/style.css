@@ -9,13 +9,10 @@
 
 body {
 	font-family: Roboto,RobotoDraft,Arial,sans-serif;
+	background-color: #ffffcc;
 }
 
-main{
-	height: 100vh;
-	/* background-color: red; */
 
-}
 
 .center {
 	text-align: center;
@@ -50,7 +47,6 @@ main{
 	color: black;
 	font-size: 1em;
 
-
 	padding: 10px 10px 10px 10px;
 	background: transparent;
 	width: 100%;
@@ -63,18 +59,36 @@ main{
 	font-weight: bold;
 }
 
+.demo {
+	font-size: 1.5em;
+	margin-top: 75%;
+}
+.arrow1, .arrow2 {
+	position: absolute;
+	height: 25%;
+}
+.arrow1 {
+	bottom: 2.5em;
+	right: 3em;
+	transform: rotate(-40deg);
+}
+.arrow2 {
+	bottom: 4em;
+	right: 0em;
+	transform: rotate(180deg);
+}
 
 
-
-
-#notesContainer { transition: all 1s }
-
+/**********************************************************************************
+		CONTAINER
+***********************************************************************************/
+#notesContainer { 	transition: all 1s }
 #notesContainer {
-	padding: 7%;
-	opacity: 1;
+	background-color: #ffffcc;
 	display: block;
   flex-wrap: wrap;
 }
+
 #notesContainer.pre-animation {
 	 opacity:0.3;
 }
@@ -84,21 +98,28 @@ main{
 }
 
 
-
-
+/**********************************************************************************
+		NOTES AND COLOURS
+***********************************************************************************/
 .note {
 	padding: 5%;
 	margin: 2%;
 	border-radius: 8px;
 	flex: 1 1 30%;
 	max-height: 40%;
-	max-width: 49%;
+	max-width: 46%;
 
 	/* overflow: hidden; */
 }
 
 .note-content{
 	margin-top: 10%;
+
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 5;
+	-webkit-box-orient: vertical;
+
 }
 .note-big {
 	height: 100vh;
@@ -106,6 +127,7 @@ main{
 	max-height: 100%;
 	max-width: 100%;
 	padding: 11%;
+	transition: background 1s;
 }
 
 .note-white {
@@ -114,6 +136,12 @@ main{
 }
 .note-aqua {
 	background-color: aqua;
+}
+.note-darkblue {
+	background-color: #5485FF;
+}
+.note-grey {
+	background-color: #C0C0C0;
 }
 .note-yellow {
 	background-color: #f3fb83;
@@ -127,17 +155,23 @@ main{
 .note-pink {
 	background-color: #FFA9E3;
 }
+.note-rainbow {
+	background: linear-gradient(0deg, red, orange, yellow, green, aqua, purple);
+}
+.note-diamond {
+	background-image: url("/assets/img/diamond.png");
+	background-size: cover;
+}
+
 
 .note-hashtags {
 	color: #7C7C7C;
 	margin-bottom:10%;
 }
-
 .selectNote::after {
 	cursor: grab;
 	content: "";
 	bottom: 0;
-	background: red;
 	padding: 1%;
 	opacity: .5;
 }
@@ -177,7 +211,9 @@ h3 {
 
 
 
-
+#danceImg {
+	transition: all 1s;
+}
 
 
 
@@ -187,14 +223,12 @@ h3 {
 .formNewNote {
 	/* display: none; */
 }
-.note input, .note #addTextNote {
 
+.note input:hover, .note #addTextNote:hover {
+  -webkit-box-shadow: inset 0px 0px 20px 6px rgba(166,149,166,1);
+  -moz-box-shadow: inset 0px 0px 20px 6px rgba(166,149,166,1);
+  box-shadow: inset 0px 0px 20px 6px rgba(166,149,166,1);
 }
-    .note input:hover, .note #addTextNote:hover {
-        -webkit-box-shadow: inset 0px 0px 20px 6px rgba(166,149,166,1);
-        -moz-box-shadow: inset 0px 0px 20px 6px rgba(166,149,166,1);
-        box-shadow: inset 0px 0px 20px 6px rgba(166,149,166,1);
-    }
 .note #addTextNote {
     min-height: 100px;
 }
@@ -208,8 +242,9 @@ h3 {
 
 
 
-/*FORM*/
-
+/**********************************************************************************
+		FORMULARIO
+***********************************************************************************/
 textarea{
 	width: 100%;
 	min-height: 80px;
@@ -221,20 +256,28 @@ form input {
 	-webkit-appearance: none;
 	display: block;
 	background: transparent;
-	color: #fff;
 	width: 100%;
 	border: none;
 	border-bottom: 1px solid #757575;
-
 	font-size: 2.2em;
-	margin-top: 0.83em;
-	margin-left: 0;
-	margin-right: 0;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
 	font-weight: bold;
 }
-    input:focus, #addTextNote:focus {
-        outline: none;
-    }
+input:focus, #addTextNote:focus {
+    outline: none;
+}
+
+#addTextNote {
+	font-family: Roboto,RobotoDraft,Arial,sans-serif;
+	background: transparent;
+	font-size: 1em;
+	resize: none;
+	height: 50vh;
+	border: 0;
+	border-bottom: 1px solid #757575;
+	padding-bottom: 1em;
+}
 
 /* active */
 
@@ -284,7 +327,9 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
 
 
 
-
+/**********************************************************************************
+		MENU TOSTADA
+***********************************************************************************/
 		.menu-container div {
 			height: 70px;
 			width: 70px;
@@ -299,19 +344,19 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
 		}
 
 
-		#createNote img, #createFolder img, #search img {
+		#iconNewnote img, #createFolder img, #search img {
 			height: 50px;
 		}
 		#menu img {
 			height: 70px;
 		}
-		#changeView img {
+		#changeView img, #swap img {
 			transition: transform 1s;
 			transform: rotate(90deg);
 			height: 25px;
 		}
 
-		#createNote, #createFolder, #search , #changeView, #menu{
+		#iconNewnote, #swap, #createFolder, #search , #changeView, #menu{
 			opacity: 0;
 			position: fixed;
 			transition: all .5s;
@@ -320,24 +365,30 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
 			bottom: 1em;
 			right: 6em;
 		}
-		#createNote {
-			bottom: 6em;
-			right: 6em;
+		#swap {
+			height: 3vh;
+			width: 3vh;
+			bottom: 6.3em;
+			right: 3.7em;
+		}
+		#iconNewnote {
+			bottom: 5.8em;
+			right: 5.8em;
 		}
 		#createFolder {
-			bottom: 9em;
+			bottom: 8em;
 			right: 1.5em;
 		}
 		#changeView {
 			height: 6vh;
 			width: 6vh;
-			bottom: 6em;
-			right: 0.5em;
+			bottom: 5.7em;
+			right: 0.3em;
 		}
 		#menu {
 			visibility: visible;
-			bottom: 2em;
-			right: 1em;
+			bottom: 1.5em;
+			right: 1.2em;
 		}
 
 
@@ -354,24 +405,71 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
 
 
 
+/**********************************************************************************
+		TAGS VISTA Y BORRADO
+***********************************************************************************/
+
+.tags {
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.tags li {
+  float: left;
+}
+
+.tag {
+	margin-top: 4em;
+  background: #eee;
+  border-radius: 3px;
+  color: #999;
+	opacity: 0.5;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+	transition: all 1s;
+}
+
+.tag::before {
+  background: grey;
+  border-radius: 10px;
+  content: '';
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.tag-delete {
+	color: black;
+	background-color: red;
+}
+.tag-delete::after {
+	content: ' ❌';
+}
 
 
 
 
-
-
-
-
-
-
-
+/**********************************************************************************
+		COLOR FONDO
+***********************************************************************************/
 .colorPicker {
-  margin-top: 10em;
-  font-size: 0.875em;
+	position: absolute;
+	bottom: 2.8em;
+	font-size: 0.875em;
   text-align: center;
   display: inline-table;
   width: 100%;
-  max-width: 40em;
+  max-width: 12em;
   background: #fff;
   padding: 2px;
   border-radius: 0.35em;
@@ -389,36 +487,6 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
   color: transparent;
   width: 1%;
 
-}
-
-
-.colorPicker label.red {
-  background-color: #f69681;
-  -webkit-tap-highlight-color: #f69681;
-}
-.colorPicker label.orange {
-  background-color: #FFA962;
-  -webkit-tap-highlight-color: #FFA962;
-}
-.colorPicker label.yellow {
-  background-color: #f3fb83;
-  -webkit-tap-highlight-color: #f3fb83;
-}
-.colorPicker label.green {
-  background-color: #45F564;
-  -webkit-tap-highlight-color: #45F564;
-}
-.colorPicker label.blue {
-  background-color: aqua;
-  -webkit-tap-highlight-color: aqua;
-}
-.colorPicker label.indigo {
-  background-color: #5485FF;
-  -webkit-tap-highlight-color: #5485FF;
-}
-.colorPicker label.violet {
-  background-color: #FFA9E3;
-  -webkit-tap-highlight-color: #FFA9E3;
 }
 .colorPicker label:first-of-type {
   border-radius: 0.25em 0 0 0.25em;
@@ -439,4 +507,50 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
   opacity: 1;
   color: #000;
   letter-spacing: normal;
+}
+
+
+
+/**********************************************************************************
+		CAMBIO POSICION
+***********************************************************************************/
+/* Pulse Shrink */
+@keyframes pulse-grow {
+  to {
+    transform: scale(0.95);
+  }
+}
+.pulse-grow {
+  display: inline-block;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  animation-name: pulse-grow;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.back {
+  transform: rotateX(0deg) rotateY(360deg);
+  transform-style: preserve-3d;
+  transition: all .4s ease-in-out;
+  /* backface-visibility: hidden; */
+	background-color: transparent;
+
+	background-repeat: no-repeat, repeat;
+
+}
+
+.flipped {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+}
+
+.reverse {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  transform: rotateY(360deg);
 }
