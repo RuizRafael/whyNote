@@ -162,6 +162,9 @@ body {
 	background-image: url("/assets/img/diamond.png");
 	background-size: cover;
 }
+.note-nude {
+	background-color: #DFCBB8;
+}
 
 
 .note-hashtags {
