@@ -47,9 +47,9 @@ function eventController() {
 
 		document.getElementById('swap').addEventListener('click', activeSwap);
 
-		 chargeGroups();
-		 //actualGroup = "rafa";
-		 //chargeNotes();
+		// chargeGroups();
+		 actualGroup = "rafa";
+		 chargeNotes();
 
 	}
 }
@@ -98,7 +98,7 @@ let lastId;
 let boolSwap = false;
 let firstId = "0";
 let boolBlockNotes = false;
-let arrayColors = ["note-aqua","note-yellow","note-red","note-green","note-pink","note-grey","note-darkblue","note-rainbow","note-diamond"];
+let arrayColors = ["note-aqua","note-yellow","note-red","note-green","note-pink","note-grey","note-darkblue","note-rainbow","note-diamond","note-nude"];
 
 
 
@@ -309,20 +309,22 @@ function viewNote(idClicked){
 						<p><textarea id="addTextNote" spellcheck="false" placeholder="Empieza tu nota!">`+notesArray[i][2]+`</textarea></p>
 
 							<div class="colorPicker">
-							  <input class="note-grey" type="radio" name="colorSelected" autocomplete="off" value="grey" id="colorSelected-grey"/>
-							  <label class="note-grey" for="colorSelected-grey">grey</label>
-							  <input class="note-yellow" type="radio" name="colorSelected" autocomplete="off" value="yellow" id="colorSelected-yellow"/>
-							  <label class="note-yellow" for="colorSelected-yellow">yellow</label>
-							  <input class="note-green" type="radio" name="colorSelected" autocomplete="off" value="green" id="colorSelected-green"/>
-							  <label class="note-green" for="colorSelected-green">green</label>
-							  <input class="note-aqua" type="radio" name="colorSelected" autocomplete="off" value="blue" id="colorSelected-blue"/>
-							  <label class="note-aqua" for="colorSelected-blue">blue</label>
-							  <input class="note-darkblue" type="radio" name="colorSelected" autocomplete="off" value="indigo" id="colorSelected-indigo"/>
-							  <label class="note-darkblue" for="colorSelected-indigo">DarkBlue</label>
-							  <input class="note-pink" type="radio" name="colorSelected" autocomplete="off" value="violet" id="colorSelected-violet"/>
-							  <label class="note-pink" for="colorSelected-violet">violet</label>
+								<input class="note-grey" type="radio" name="colorSelected" autocomplete="off" value="grey" id="colorSelected-grey"/>
+								<label class="note-grey" for="colorSelected-grey">grey</label>
+								<input class="note-yellow" type="radio" name="colorSelected" autocomplete="off" value="yellow" id="colorSelected-yellow"/>
+								<label class="note-yellow" for="colorSelected-yellow">yellow</label>
+								<input class="note-green" type="radio" name="colorSelected" autocomplete="off" value="green" id="colorSelected-green"/>
+								<label class="note-green" for="colorSelected-green">green</label>
+								<input class="note-aqua" type="radio" name="colorSelected" autocomplete="off" value="blue" id="colorSelected-blue"/>
+								<label class="note-aqua" for="colorSelected-blue">blue</label>
+								<input class="note-darkblue" type="radio" name="colorSelected" autocomplete="off" value="indigo" id="colorSelected-indigo"/>
+								<label class="note-darkblue" for="colorSelected-indigo">dark</label>
+								<input class="note-pink" type="radio" name="colorSelected" autocomplete="off" value="violet" id="colorSelected-violet"/>
+								<label class="note-pink" for="colorSelected-violet">violet</label>
 								<input class="note-red" type="radio" name="colorSelected" autocomplete="off" value="red" id="colorSelected-red"/>
-							 <label class="note-red" for="colorSelected-red">red</label>
+								<label class="note-red" for="colorSelected-red">red</label>
+								<input class="note-nude" type="radio" name="colorSelected" autocomplete="off" value="nude" id="colorSelected-nude"/>
+								<label class="note-nude" for="colorSelected-nude">nude</label>
 							</div>
 			</div>
 
