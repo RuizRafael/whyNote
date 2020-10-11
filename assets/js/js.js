@@ -236,10 +236,12 @@ function createAutoNote(){
 	color: randomColor,
 	groups: actualGroup,
 	id_note: (notesArray.length +1),
-	title: noteId,
- 	hashtags: [],
+	//title: noteId,
+	title: "New!🤍",
+	hashtags: [],
   	//hashtags: ["#Prueba", "#"+noteId, "#Dev", "#Tags"],
-	content: "Esta es la prueba del boton ("+noteId+") para añadir la notita. Ultimo update a las 14:20 del 02/07/2020" });
+	//content: "Esta es la prueba del boton ("+noteId+") para añadir la notita. Ultimo update a las 14:20 del 02/07/2020" });
+	content: "..." });
 }
 
 
