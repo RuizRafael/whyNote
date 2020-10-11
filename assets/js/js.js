@@ -237,7 +237,8 @@ function createAutoNote(){
 	groups: actualGroup,
 	id_note: (notesArray.length +1),
 	title: noteId,
-  hashtags: ["#Prueba", "#"+noteId, "#Dev", "#Tags"],
+ 	hashtags: [],
+  	//hashtags: ["#Prueba", "#"+noteId, "#Dev", "#Tags"],
 	content: "Esta es la prueba del boton ("+noteId+") para añadir la notita. Ultimo update a las 14:20 del 02/07/2020" });
 }
 
