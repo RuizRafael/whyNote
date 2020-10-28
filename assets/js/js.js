@@ -47,8 +47,8 @@ function eventController() {
 
 		document.getElementById('swap').addEventListener('click', activeSwap);
 
-		// chargeGroups();
-		 actualGroup = "rafa";
+		 chargeGroups();
+		// actualGroup = "rafa";
 		 chargeNotes();
 
 	}
